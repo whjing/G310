@@ -1,0 +1,48 @@
+2024-04-04 11:11:15	INFO	::casa	
+2024-04-04 11:11:16	INFO	::casa	Python version 3.8.18
+2024-04-04 11:11:16	INFO	::casa	CASA Version MODULAR 6.5.1.23
+2024-04-04 11:11:16	INFO	::casa	Can't import casatelemetry module.
+2024-04-04 11:11:16	INFO	importfits::::casa	##########################################
+2024-04-04 11:11:16	INFO	importfits::::casa	##### Begin Task: importfits         #####
+2024-04-04 11:11:16	INFO	importfits::::casa	importfits( fitsimage='../Fits_4-subband-useful/image.i.EMU_1356-64.SB53310.beam27-28-33.taylor.0.restored_crop-250.fits', imagename='templete.im', whichrep=0, whichhdu=-1, zeroblanks=True, overwrite=True, defaultaxes=False, defaultaxesvalues=[], beam=[] )
+2024-04-04 11:11:16	INFO	importfits::::ImageFITSConverter	Processing HDU 0
+2024-04-04 11:11:16	INFO	importfits::::	FITS card 51: CROTA1  =                    0                                                  
+2024-04-04 11:11:16	INFO	importfits::::	Keyword value has wrong data type.
+2024-04-04 11:11:16	INFO	importfits::::	... converted to type double.
+2024-04-04 11:11:16	INFO	importfits::FITSCoordinateUtil::fromFITSHeader	passing empty or nonexistant spectral Coordinate axis
+2024-04-04 11:11:16	INFO	importfits::ImageFITSConverterImpl::FITSToImage 	Created image of shape [125, 125]
+2024-04-04 11:11:16	INFO	importfits::ImageFITSConverterImpl::FITSToImage 	Copy FITS file to '/Users/jing/G310/Code/templete.im' All pixels fit in memory (15625 pixels).
+2024-04-04 11:11:16	INFO	importfits::::casa	Task importfits complete. Start time: 2024-04-04 19:11:16.068407 End time: 2024-04-04 19:11:16.102229
+2024-04-04 11:11:16	INFO	importfits::::casa	##### End Task: importfits           #####
+2024-04-04 11:11:16	INFO	importfits::::casa	##########################################
+2024-04-04 11:11:16	INFO	importfits::::casa	##########################################
+2024-04-04 11:11:16	INFO	importfits::::casa	##### Begin Task: importfits         #####
+2024-04-04 11:11:16	INFO	importfits::::casa	importfits( fitsimage='../Chandra_process/process/flux_2/hard_flux.img', imagename='object.im', whichrep=0, whichhdu=-1, zeroblanks=True, overwrite=True, defaultaxes=False, defaultaxesvalues=[], beam=[] )
+2024-04-04 11:11:16	INFO	importfits::::ImageFITSConverter	Processing HDU 0
+2024-04-04 11:11:16	INFO	importfits::FITSCoordinateUtil::fromFITSHeader	passing empty or nonexistant spectral Coordinate axis
+2024-04-04 11:11:16	INFO	importfits::ImageFITSConverterImpl::FITSToImage 	Created image of shape [125, 125]
+2024-04-04 11:11:16	INFO	importfits::ImageFITSConverterImpl::FITSToImage 	Copy FITS file to '/Users/jing/G310/Code/object.im' All pixels fit in memory (15625 pixels).
+2024-04-04 11:11:16	INFO	importfits::::casa	Task importfits complete. Start time: 2024-04-04 19:11:16.102811 End time: 2024-04-04 19:11:16.148223
+2024-04-04 11:11:16	INFO	importfits::::casa	##### End Task: importfits           #####
+2024-04-04 11:11:16	INFO	importfits::::casa	##########################################
+2024-04-04 11:11:16	INFO	imregrid::::casa	##########################################
+2024-04-04 11:11:16	INFO	imregrid::::casa	##### Begin Task: imregrid           #####
+2024-04-04 11:11:16	INFO	imregrid::::casa	imregrid( imagename='object.im', template='templete.im', output='grid.im', asvelocity=True, axes=[-1], shape=[-1], interpolation='linear', decimate=10, replicate=False, overwrite=True )
+2024-04-04 11:11:16	INFO	imregrid::ImageMaskAttacher::makeMask	Created and initialized mask `mask0'
+2024-04-04 11:11:16	WARN	imregrid::ImageRegrid::regrid	You are regridding an image whose beam is not well sampled by the pixel size.  Total flux can be lost when regridding such images, especially when the new pixel size is larger than the old pixel size. It is recommended to check the total flux of your input and output image, and if necessary rebin the input to have smaller pixels.
+2024-04-04 11:11:16	INFO	imregrid::SubImageFactory::createImage	Creating image 'grid.im' of shape [125, 125]
+2024-04-04 11:11:16	INFO	imregrid::::casa	Task imregrid complete. Start time: 2024-04-04 19:11:16.153313 End time: 2024-04-04 19:11:16.176492
+2024-04-04 11:11:16	INFO	imregrid::::casa	##### End Task: imregrid             #####
+2024-04-04 11:11:16	INFO	imregrid::::casa	##########################################
+2024-04-04 11:11:16	INFO	imsmooth::::casa	##########################################
+2024-04-04 11:11:16	INFO	imsmooth::::casa	##### Begin Task: imsmooth           #####
+2024-04-04 11:11:16	INFO	imsmooth::::casa	imsmooth( imagename='grid.im', kernel='gauss', major='0.00340813578960819deg', minor='0.00301701793937799deg', pa='86.3068361712279deg', targetres=False, kimage='', scale=-1.0, region='', box='', chans='', stokes='', mask='', outfile='smooth.im', stretch=False, overwrite=True, beam='' )
+2024-04-04 11:11:16	INFO	imsmooth::CasacRegionManager::fromBCS	No directional region specified. Using full positional plane.
+2024-04-04 11:11:16	INFO	imsmooth::Image2DConvolver::_dealWithRestoringBeam	You are convolving the sky
+2024-04-04 11:11:16	INFO	imsmooth::Image2DConvolver::_dealWithRestoringBeam	Scaling pixel values by 0.0264907
+2024-04-04 11:11:16	INFO	imsmooth::Image2DConvolver::_dealWithRestoringBeam	Original /Users/jing/G310/Code/grid.im resolution major: 12.2693 arcsec, minor: 10.8613 arcsec, pa: 86.3068 deg
+2024-04-04 11:11:16	INFO	imsmooth::Image2DConvolver::_dealWithRestoringBeam	Output smooth.im resolution major: 17.3514 arcsec, minor: 15.3601 arcsec, pa: 86.3068 deg
+2024-04-04 11:11:16	INFO	imsmooth::SubImageFactory::createImage	Creating image 'smooth.im' of shape [125, 125]
+2024-04-04 11:11:16	INFO	imsmooth::::casa	Task imsmooth complete. Start time: 2024-04-04 19:11:16.187100 End time: 2024-04-04 19:11:16.317476
+2024-04-04 11:11:16	INFO	imsmooth::::casa	##### End Task: imsmooth             #####
+2024-04-04 11:11:16	INFO	imsmooth::::casa	##########################################
