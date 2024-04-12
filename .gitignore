@@ -3,6 +3,6 @@
 # !gittest/*.sh
 !gittest
 # /gittest_2
-# !gittest_2/*sh
+!/gittest_2/*sh
 !.gitignore
 !*sh
